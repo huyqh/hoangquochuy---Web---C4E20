@@ -4,30 +4,30 @@ app = Flask(__name__)
 
 @app.route("/user/<username>/")
 def username(username):
-    usernames = {
+    users = {
         "huy" : {
             "name" : "huy",
             "age"  : 20,
-            "auther_sex" : "male",
+            "author_sex" : "male",
             "hobbit" : "gym"
         } 
         ,
         "vinh" : {
             "name" : "vinh",
             "age"  : 21,
-            "auther_sex" : "male",
+            "author_sex" : "male",
             "hobbit" : "watching movie"   
         }
         ,
         "minh phuong" : {
             "name" : "minh phuong",
             "age"  : 21,
-            "auther_sex" : "female",
+            "author_sex" : "female",
             "hobbit" : "go to trip"
         }
     }
     if username in users:
-        return render_template("username.html", username = usernames[username])
+        return render_template("username.html", username = users[username])
     else:
         return "User not found"
     
