@@ -22,8 +22,8 @@ def search(g):
     return render_template("search.html", all_service = all_service)
 
 
-@app.route("/customer_vase")
-def customer_vase():
+@app.route("/customer")
+def customer():
     all_customer = Customer.objects()
     return render_template("customer.html", all_customer = all_customer)
 
