@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Customer_vase</h1>
+    <a href="{{  url_for("index") }}">Click về trang chủ</a>
+    {% for service in all_service %}
+    <div>
+        {% if service.gender == 0 %} 
+            <img src="../static/image/female-profile.jpg" alt="">
+        {% else %} 
+            <img src="../static/image/male-profile.jpg" alt="">
+        {% endif %}
+        
+        <p>Tên : {{ customer_vase.name }}</p>
+        <p>Nghề nghiệp : {{ customer_vase.job }}</p>
+        <p>Email : {{ customer_vase.email }} </p>
+        <p>Số điện thoại : {{ customer_vase.phone_number }}</p>
+        <p>Company : {{ customer_vase.company }}</p>
+        <hr>
+    </div>
+    {% endfor %}
+</body>
+</html>
