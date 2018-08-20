@@ -9,7 +9,7 @@
 <body>
     <h1>customer</h1>
     <a href="{{  url_for("index") }}">Click về trang chủ</a>
-    {% for service in all_service %}
+    {% for customer in all_customer %}
     <div>
         {% if customer.gender == 0 %} 
             <img src="../static/image/female-profile.jpg" alt="">
