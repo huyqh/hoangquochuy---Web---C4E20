@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div>
+        <img src="{{service.image}}" alt=""  >
+        <p>Tên: {{service.name}}</p>
+        <p>Năm sinh: {{service.yob}}</p>
+        <p>Chiều cao: {{service.height}}</p>
+        <p>Số điện thoại: {{service.phone_number}}</p>
+        <p>Địa chỉ: {{service.address}}</p>
+        <p>Mô tả:   {% for description in service.descriptions %}
+                    {{ description }} 
+                    {% endfor %}</p>
+        <p>Số đo 3 vòng:    {% for measurement in service.measurements %}
+                            {{ measurement }}
+                            {% endfor %}</p>
+        </div>
+
+</body>
+</html>
