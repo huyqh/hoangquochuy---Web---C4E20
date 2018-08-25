@@ -21,7 +21,7 @@ def index():
 
 @app.route("/search/<g>")
 def search(g):
-    all_service = Service.objects()
+    all_service = Service.objects(gender=g)
     # all_service = Service.objects(gender=g, yob__gte=18, height__gte=165, address__icontains="Hà Nội")
     return render_template("search.html", all_service = all_service)
 
@@ -101,8 +101,8 @@ def create():
 
 @app.route("/detail/<service_id>")
 def detail(service_id):
-    service = Service.objects(service_id)
-    return render_template("detail.html", service = service)
+    all_service = Service.objects(service_id)
+    return render_template("detail.html", all_service = all_service)
 
 
 

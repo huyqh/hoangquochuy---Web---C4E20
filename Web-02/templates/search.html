@@ -17,13 +17,15 @@
             <img src="../static/image/male-profile.jpg" alt="">
         {% endif %}
         
-         -->
+        -->
+        
+        <img src="{{service.image}}" alt="">
         <p>Tên: {{service.name}}</p>
         <p>Năm Sinh: {{service.yob}}</p>
         <p>Chiều cao: {{service.height}}</p>
-        <img src = "../static/image/images.png" alt = ""  >
+        
         <hr>
-        <a href="{{ url_for("detail", service_id = service_id) }}">Tìm hiểu thêm</a>
+        <a href="{{ url_for("detail", service_id = service.id) }}">Tìm hiểu thêm</a>
         <hr>
     </div>
     {% endfor %}

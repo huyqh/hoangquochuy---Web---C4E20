@@ -36,7 +36,7 @@ for i in range(20):
             status = choice([True,False]),
             description = sample(description_female, 3),
             measurements = measurements,
-            image = "../static/image/female/ + choice(image_female) "
+            image = "../static/image/female/"+ choice(image_female) 
             )
        
 
@@ -50,7 +50,7 @@ for i in range(20):
             status = choice([True,False]),
             description = sample(description_male, 3),
             measurements = measurements,
-            image = "../static/image/male/ + choice(image_male)"
+            image = "../static/image/male/" + choice(image_male)
             )
     new_service.save()
 
