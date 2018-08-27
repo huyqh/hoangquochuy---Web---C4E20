@@ -101,8 +101,8 @@ def create():
 
 @app.route("/detail/<service_id>")
 def detail(service_id):
-    all_service = Service.objects(service_id)
-    return render_template("detail.html", all_service = all_service)
+    service = Service.objects(service_id)
+    return render_template("detail.html", service = service)
 
 
 
