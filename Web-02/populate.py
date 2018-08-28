@@ -29,13 +29,14 @@ for i in range(20):
     
     if gender == 0:
         new_service = Service(
+            gender = 0,
             name = fake.name(),
             yob = randint(1998,2001),
             height = randint(165,175),
             address = fake.address(),
             phone = fake.phone_number(),
             status = choice([True,False]),
-            description = sample(description_female, 3),
+            descriptions = sample(description_female, 3),
             measurements = measurements,
             image  = "../static/image/female/"+ choice(image_female)
             )
@@ -43,16 +44,19 @@ for i in range(20):
 
     else:
         new_service = Service(
+            gender = 1,
             name = fake.name(),
             yob = randint(1998,2001),
             height = randint(165,175),
             address = fake.address(),
             phone = fake.phone_number(),
             status = choice([True,False]),
-            description = sample(description_male, 3),
+            descriptions = sample(description_male, 3),
             measurements = measurements,
             image  = "../static/image/male/"+ choice(image_male)
             )
+
+            
     new_service.save()
 
     

@@ -92,6 +92,7 @@ def create():
             yob = yob,
             phone = phone
         )
+        new_service.save()
         return redirect(url_for("admin"))
     
 
@@ -101,8 +102,42 @@ def create():
 
 @app.route("/detail/<service_id>")
 def detail(service_id):
-    service = Service.objects(service_id)
+    service = Service.objects.with_id(service_id)
     return render_template("detail.html", service = service)
+
+
+@app.route("/update_service/<service_id>", methods = ["GET", "POST"])
+def update_service(service_id):
+    service = Service.objects.with_id(service_id)
+    if request.method == "GET":
+        return render_template("update_service.html", service = service)
+    elif request.method == "POST":
+        form = request.form
+        name = form["name"]
+        yob = form["yob"]
+        phone = form["phone"]
+        height = form["height"]
+        address = form["address"]
+        measurements = form["measurements"]
+        # status = form["status"]
+        descriptions = form["descriptions"]
+
+        Service.objects.with_id(service_id).update(
+            name = name,
+            yob = yob,
+            phone = phone,
+            height = height,
+            address = address,
+            measurements = measurements,
+            descriptions = descriptions,
+            # status = status
+        )
+
+    
+        
+        
+        return redirect( url_for("admin") )
+    
 
 
 

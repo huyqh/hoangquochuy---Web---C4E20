@@ -42,8 +42,11 @@
                     Bận
                     {% endif %}    
                 </td>
+                <td>{{service.measurements}}</td>
+                <td>{{service.descriptions}}</td>
                 <td>
                     <a href="">Sửa</a>
+                    <a href = "{{ url_for("update_service", service_id = service.id) }}">Thay đổi</a>
                     <a href="{{ url_for("delete", service_id = service.id) }}">Xóa</a>
                     <a href="{{ url_for("all_delete")}}">Xóa tất cả</a>
                 </td>
