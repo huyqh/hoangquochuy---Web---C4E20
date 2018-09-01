@@ -1,0 +1,12 @@
+.text-red{
+    color: red;
+}
+.text-uppercase{
+    text-transform: uppercase;
+}
+.font-weight-bold{
+    font-weight:bold;
+}
+.font-pacifio{
+    font-family: 'Pacifio', runsive;
+}
