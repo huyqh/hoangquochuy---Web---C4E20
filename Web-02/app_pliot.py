@@ -3,6 +3,7 @@ import mlab
 from mongoengine import*
 from models.service import Service
 from models.customer import Customer
+from models.user import User
 app = Flask(__name__)
 
 mlab.connect()
@@ -137,6 +138,30 @@ def update_service(service_id):
         
         
         return redirect( url_for("admin") )
+
+
+@app.route("/sign_in", methods=["GET", "POST"])
+def sign_in():
+    if request.method == "GET":
+        user = User.objects()
+        return render_template("sign_in.html", user = user)
+    elif request.method == "POST":
+        form = request.form 
+        name = form["name"]
+        email = form["email"]
+        username = form["username"]
+        password = form["password"]
+
+        user = User(
+            name = name,
+            email = email,
+            username = username,
+            password = password
+        ) 
+
+        user.save()
+        return redirect(url_for("sign_in"))
+
     
 
 
