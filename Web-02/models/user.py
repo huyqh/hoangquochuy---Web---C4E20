@@ -1,6 +1,6 @@
 from mongoengine import*
 class User(Document):
-    name = StringField()
+    fullname = StringField()
     email = StringField()
     username = StringField()
     password = StringField()

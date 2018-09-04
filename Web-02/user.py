@@ -5,11 +5,11 @@ mlab.connect()
 
 
 
-user = User(    
-    name = input("Họ và tên đầy đủ:"),
+new_user = User(    
+    fullname = input("Họ và tên đầy đủ:"),
     email = input("Email:"),
     username = input("Username:"),
     password = input("Password:")
 )
-user.save()
+new_user.save()
  

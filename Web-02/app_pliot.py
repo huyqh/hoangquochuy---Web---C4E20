@@ -7,6 +7,7 @@ from models.user import User
 app = Flask(__name__)
 
 mlab.connect()
+app.secret_key = "very very secret key"
 # design pattern (MVC, MVP,...)
 # design database
 
@@ -104,12 +105,22 @@ def create():
 @app.route("/detail/<service_id>")
 def detail(service_id):
     service = Service.objects.with_id(service_id)
-    return render_template("detail.html", service = service)
+    session["service"] = str(service.id)
+    if "loggedin" in session:
+        if session["loggedin"] == True:
+            if service is not None:
+                return render_template("detail.html", service = service)
+            else:
+                return "Service is not found"
+        else:
+            return redirect(url_for("login"))
+    else:
+        return redirect(url_for("login"))
 
 
 @app.route("/update_service/<service_id>", methods = ["GET", "POST"])
 def update_service(service_id):
-    service = Service.objects.with_id(service_id)
+    
     if request.method == "GET":
         return render_template("update_service.html", service = service)
     elif request.method == "POST":
@@ -133,34 +144,66 @@ def update_service(service_id):
             descriptions = descriptions,
             # status = status
         )
-
-    
-        
-        
         return redirect( url_for("admin") )
 
 
-@app.route("/sign_in", methods=["GET", "POST"])
-def sign_in():
+
+@app.route("/sign-in", methods=["GET", "POST"])
+def signin():
     if request.method == "GET":
-        user = User.objects()
-        return render_template("sign_in.html", user = user)
+        new_user = User.objects()
+        return render_template("sign-in.html", new_user = new_user)
     elif request.method == "POST":
         form = request.form 
-        name = form["name"]
+        fullname = form["fullname"]
         email = form["email"]
         username = form["username"]
         password = form["password"]
 
-        user = User(
-            name = name,
+        new_user = User(
+            fullname = fullname,
             email = email,
             username = username,
             password = password
         ) 
 
-        user.save()
-        return redirect(url_for("sign_in"))
+        new_user.save()
+        return redirect(url_for("index"))
+
+@app.route("/login/<service_id>", methods = ["GET","POST"])
+def login(service_id):
+    if request.method == "GET":
+        return render_template("login.html")
+    elif request.method =="POST":
+        form = request.form
+        username = form["username"]
+        password = form["password"]
+
+        found_user = User.objects(
+            username = username,
+            password = password
+        )
+
+        if found_user:
+            session["loggedin"] = True
+            new_user = User.objects.get(username = username)
+            session["new_user"] = str(new_user.id)
+            service_id = session["service"]
+            return redirect( url_for("detail", service_id = service_id))
+        else:
+            return redirect(url_for("signin"))
+  
+
+
+
+
+
+@app.route("/logout")
+def logout():
+    session["loggedin"] = False
+    session.clear()
+    return redirect(url_for("index"))
+
 
     
 
