@@ -7,7 +7,7 @@ from models.user import User
 app = Flask(__name__)
 
 mlab.connect()
-app.secret_key = "very very secret key"
+app.secret_key = "super super secret key"
 # design pattern (MVC, MVP,...)
 # design database
 
@@ -148,11 +148,10 @@ def update_service(service_id):
 
 
 
-@app.route("/sign-in", methods=["GET", "POST"])
-def signin():
+@app.route("/sign_in", methods=["GET", "POST"])
+def sign_in():
     if request.method == "GET":
-        new_user = User.objects()
-        return render_template("sign-in.html", new_user = new_user)
+        return render_template("sign_in.html")
     elif request.method == "POST":
         form = request.form 
         fullname = form["fullname"]
@@ -168,10 +167,10 @@ def signin():
         ) 
 
         new_user.save()
-        return redirect(url_for("index"))
+        return redirect(url_for("login"))
 
-@app.route("/login/<service_id>", methods = ["GET","POST"])
-def login(service_id):
+@app.route("/login/", methods = ["GET","POST"])
+def login():
     if request.method == "GET":
         return render_template("login.html")
     elif request.method =="POST":
@@ -183,15 +182,16 @@ def login(service_id):
             username = username,
             password = password
         )
+        
 
-        if found_user:
+        if found_user == True:
             session["loggedin"] = True
-            new_user = User.objects.get(username = username)
+            new_user = User.objects.get(username = username, password = password)
             session["new_user"] = str(new_user.id)
             service_id = session["service"]
             return redirect( url_for("detail", service_id = service_id))
         else:
-            return redirect(url_for("signin"))
+            return redirect(url_for("sign_in"))
   
 
 
@@ -203,6 +203,26 @@ def logout():
     session["loggedin"] = False
     session.clear()
     return redirect(url_for("index"))
+
+
+@app.route("/ordered")
+def ordered():
+    if "loggedin" in session:
+        if session["loggedin"] == True:
+            user = session["user"]
+            service = session["service"]
+            new_order = Order(
+                user = user,
+                service = service,
+                order_time = datetime.datetime.now(),
+                is_accepted = False
+            )
+            new_order.save()
+            return "Đã gửi yêu cầu"
+        else:
+            return redirect(url_for("login"))
+    else:
+        return redirect(url_for("login"))
 
 
     

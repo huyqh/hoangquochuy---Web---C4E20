@@ -7,15 +7,17 @@
     <title>Mùa Đông Không Lạnh</title>
 </head>
 <body>
-    <form>Đăng nhập</form>
-    <br>
-    <label>Username</label>
-    <input type="text" name = "username">
-    <br>
-    <label>Password</label>
-    <input type="password" name = "password">
-    <br>
-    <a href="{{ url_for("detail", service_id = service.id )}}">Đăng nhập</a>
-    <a href="{{ url_for("signin")}}">Đăng ký</a>
+    <h1>Đăng nhập</h1>
+    <form method = "POST"> 
+        <br>
+        <label for="">Username</label>
+        <input type="text" name = "username">
+        <br>
+        <label for="">Password</label>
+        <input type="password" name = "password">
+        <br>
+        <input type="submit" value = "Đăng nhập">
+        <a href="{{ url_for("sign_in")}}">Đăng ký</a>
+    </form>
 </body>
 </html>
