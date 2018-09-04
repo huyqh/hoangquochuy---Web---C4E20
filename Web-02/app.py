@@ -184,7 +184,7 @@ def login():
         )
         
 
-        if found_user == True:
+        if found_user:
             session["loggedin"] = True
             new_user = User.objects.get(username = username, password = password)
             session["new_user"] = str(new_user.id)
