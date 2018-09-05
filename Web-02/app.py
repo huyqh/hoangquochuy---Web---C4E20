@@ -4,6 +4,8 @@ from mongoengine import*
 from models.service import Service
 from models.customer import Customer
 from models.user import User
+from models.order import Order
+import datetime
 app = Flask(__name__)
 
 mlab.connect()
@@ -209,10 +211,10 @@ def logout():
 def ordered():
     if "loggedin" in session:
         if session["loggedin"] == True:
-            user = session["user"]
+            new_user = session["new_user"]
             service = session["service"]
             new_order = Order(
-                user = user,
+                new_user = new_user,
                 service = service,
                 order_time = datetime.datetime.now(),
                 is_accepted = False
