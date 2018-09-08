@@ -1,0 +1,56 @@
+.bg-black {
+    background-color: black;
+}
+
+.size-bg {
+    width: 100%;
+    height: 300px;
+}
+
+
+.border-radius {
+    border-radius: 50%;
+    border: 1px solid white;
+    background-size: cover;
+}
+
+#flex-box {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+
+}
+
+
+.image-01 {
+    background-image: url("https://vtimes.com.au/up/images/04-16/2257012-dakota-johnson-met-moi-vi-0.jpg");
+}
+
+#text-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: underline;
+    margin: 10px;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-transform: uppercase;
+}
+
+.size-image{
+    height: 150px;
+    width: 150px;
+}
+
+#flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}

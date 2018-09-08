@@ -1,0 +1,173 @@
+.bg-grey{
+    background-color: grey;
+  }
+  
+.bg-red{
+    background-color: red;
+  }
+  
+.bg-green{
+    background-color: green;
+  }
+  
+.bg-lightgreen{
+    background-color: lightgreen;
+  }
+  
+.bg-blue{
+    background-color: blue;
+  }
+  
+.bg-lightblue{
+    background-color: lightblue;
+  }
+  
+.bg-yellow{
+    background-color: yellow;
+  }
+  
+.bg-orange{
+    background-color: orange;
+  }
+.w-15{
+    width: 15%;
+  }
+  
+.w-24{
+    width: 24%;
+  }
+  
+.w-40{
+    width: 40%;
+  }
+  
+.w-60{
+    width: 60%;
+  }
+  
+.w-78{
+    width: 78%;
+  }
+  
+.w-100{
+    width: 100%;
+  }
+  
+.h-25px{
+    height: 25px;
+  }
+  
+.h-30px{
+    height: 30px;
+  }
+  
+.h-50px{
+    height: 50px;
+  }
+  
+.h-65px{
+    height: 65px;
+  }
+  
+.h-60px{
+    height: 60px;
+  }
+  
+.h-80px{
+    height: 80px;
+  }
+  
+.h-140px{
+    height: 140px;
+  }
+  
+.h-160px{
+    height: 160px;
+  }
+  
+.h-175px{
+    height: 175px;
+  }
+  
+.h-250px{
+    height: 250px;
+  }
+  
+.h-300px{
+    height: 300px;
+  }
+  
+.h-620px{
+    height: 620px;
+  }
+  
+  
+  
+#content{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+#content-left1-1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+#content-left1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+#content-left2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+#content-left{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+#content-right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+#content-right1{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+#content-right2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+#content-right2-1{
+    display: flex;
+  }
+  
+#content-right2-2{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+#content-right2-2-1{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+#content-right2-2-2{
+    display: flex;
+    justify-content: space-between;
+  }
+  
+#content-bottom{
+    margin: 10px 0px;
+  }
