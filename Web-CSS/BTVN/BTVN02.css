@@ -209,6 +209,41 @@
   background-color: white;
 }
 
-.header-img {
+.nav-tastemakers {
+  background-image: url(images/icons/nav-tastemakers.png);
+  background-size: contain;
+}
+
+.nav-blog {
+  background-image: url(images/icons/nav-blog.png);
+  background-size: contain;
+}
+.nav-alist {
+  background-image: url(images/icons/nav-alist.png);
+  background-size: contain;
+}
+.nav-about {
+  background-image: url(images/icons/nav-about.png);
+  background-size: contain;
+}
+.cookbooks {
+  background-image: url(images/cookbooks-blog.jpg);
+  background-size: contain;
+}
+.dinner-blog {
+  background-image: url(images/dinner-blog.jpg);
+  background-size: contain;
+}
+.pinterest {
+  background-image: url(images/pinterest.jpg);
+  background-size: contain;
+}
+.potato {
+  background-image: url(images/potato.jpg);
+  background-size: contain;
+}
+
+.header {
   background-image: url(images/header.jpg);
+  background-size: contain;
 }
