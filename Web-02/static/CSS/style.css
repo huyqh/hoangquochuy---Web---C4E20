@@ -1,0 +1,45 @@
+.font {
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+.mb-250px {
+    margin-bottom: 250px;
+}
+.h-500px {
+    height: 500px;
+}
+
+.h-40 {
+    height: 40%;
+}
+.h-100 {
+    height: 100%;
+}
+.bg-image-female {
+    background-image: url(../image/female.jpg);
+    width: 45%;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.bg-image-male {
+    background-image: url(../image/male.jpg);
+    width: 45%;
+    height: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.font-pacifico {
+    font-family: 'Pacifico', cursive;
+}
+
+.h-200px {
+    height: 200px;
+}
+.bg-3 {
+    background-image: url(../image/night.jpg);
+    background-size: contain;
+    width: 100%;
+    height: 600px;
+}
+
